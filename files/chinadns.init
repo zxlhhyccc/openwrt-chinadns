@@ -62,10 +62,12 @@ start_service() {
 dns_redirect(){
 	local port
 	config_get port $1 port
-	echo "server=127.0.0.1#$port" > /var/dnsmasq.d/chinadns.conf
-	echo "no-resolv" > /var/dnsmasq.d/chinadns.conf
-	echo "no-poll" > /var/dnsmasq.d/chinadns.conf
-	echo "cache-size=5000" > /var/dnsmasq.d/chinadns.conf
-	echo "min-cache-ttl=1800" > /var/dnsmasq.d/chinadns.conf
+	cat > /var/dnsmasq.d/chinadns.conf << EOF
+	server=127.0.0.1#$port
+	no-resolv
+	no-poll
+	cache-size=5000
+	"min-cache-ttl=1800
+	EOF
 	/etc/init.d/dnsmasq restart
 }
