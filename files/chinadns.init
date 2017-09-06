@@ -67,7 +67,7 @@ dns_redirect(){
 	no-resolv
 	no-poll
 	cache-size=5000
-	"min-cache-ttl=1800
+	min-cache-ttl=1800
 	EOF
 	/etc/init.d/dnsmasq restart
 }
