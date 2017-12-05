@@ -9,12 +9,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ChinaDNS
-PKG_VERSION:=1.3.2
-PKG_RELEASE:=5
+PKG_VERSION:=2.0.0
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://github.com/aa65535/openwrt-chinadns/releases/download/v$(PKG_VERSION)
-PKG_MD5SUM:=c529ac231aed4e5874251639f77e92de
+PKG_SOURCE_URL:=https://github.com/lrinQVQ/openwrt-chinadns/releases/download/v$(PKG_VERSION)
+PKG_MD5SUM:=84983f53319b9c24010c95f8418ee74e
 
 PKG_LICENSE:=GPLv3
 PKG_LICENSE_FILES:=LICENSE
