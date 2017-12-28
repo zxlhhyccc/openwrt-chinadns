@@ -67,3 +67,8 @@ start_service() {
 	config_load chinadns
 	config_foreach start_instance chinadns
 }
+
+stop_service() {
+	rm -rf /var/dnsmasq.d/chinadns.conf
+	/etc/init.d/dnsmasq restart
+}
