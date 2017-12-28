@@ -48,7 +48,7 @@ start_instance() {
 	append_parm $1 server "-s"
 	append_parm $1 chnroute "-c"
 	append_parm $1 ip "-e"
-	cat>/var/dnsmasq.d/chinadns.conf<<EOF 
+	cat> /var/dnsmasq.d/chinadns.conf <<EOF 
 	server=127.0.0.1#$port             
 	no-resolv                             
 	no-poll                            
