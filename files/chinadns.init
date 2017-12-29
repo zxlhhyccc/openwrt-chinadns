@@ -44,18 +44,6 @@ start_instance() {
 	procd_set_param respawn
 	procd_set_param stderr 1
 	procd_set_param command /usr/bin/chinadns
-	append_parm $1 port "-p"
-	append_parm $1 server "-s"
-	append_parm $1 chnroute "-c"
-	append_parm $1 ip "-e"
-	cat> /var/dnsmasq.d/chinadns.conf <<EOF
-	server=127.0.0.1#$port
-	no-resolv
-	no-poll
-	cache-size=5000
-	min-cache-ttl=1800
-	EOF
-	/etc/init.d/dnsmasq restart
 	procd_close_instance
 }
 
@@ -66,9 +54,4 @@ service_triggers() {
 start_service() {
 	config_load chinadns
 	config_foreach start_instance chinadns
-}
-
-stop_service() {
-	rm -rf /var/dnsmasq.d/chinadns.conf
-	/etc/init.d/dnsmasq restart
 }
