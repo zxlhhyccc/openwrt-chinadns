@@ -42,7 +42,7 @@ start_instance() {
 	procd_set_param respawn
 	procd_set_param stderr 1
 	procd_set_param command /usr/bin/chinadns -m
-	config_foreach dns_redirect
+	config_foreach dns_redirect chinadns
 	append_parm $1 addr "-b"
 	append_parm $1 port "-p"
 	append_parm $1 server "-s"
@@ -68,7 +68,7 @@ stop_service() {
 dns_redirect() {
 	local port
 	config_get port $1 port
-	echo "server=127.0.0.1#$port" >> /var/dnsmasq.d/chinadns.conf
+	echo "server=127.0.0.1#$port" > /var/dnsmasq.d/chinadns.conf
 	echo "no-resolv" >> /var/dnsmasq.d/chinadns.conf
 	echo "no-poll" >> /var/dnsmasq.d/chinadns.conf
 	echo "cache-size=5000" >> /var/dnsmasq.d/chinadns.conf
